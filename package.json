@@ -1,0 +1,26 @@
+{
+  "name": "team-generator",
+  "version": "1.0.0",
+  "description": "Generator for a team using node",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Chrissypike/team10-challenge.git"
+  },
+  "author": "Chrissy pike",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chrissypike/team10-challenge/issues"
+  },
+  "homepage": "https://github.com/Chrissypike/team10-challenge#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}

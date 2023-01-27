@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+  }
+  
+  /* The navbar */
+    .container1 {
+      position: relative;
+      margin: 0 auto 0;
+      padding-top: 0px;
+      text-align: center;
+      background-color: rgb(116, 152, 152);
+      min-height: 5rem;
+    }
+  
+    /* The text within the navbar */
+    .textCenter {
+      padding-top: 30px;
+      margin: 0%;
+      text-size-adjust: 10px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    
+    .profileSpot {
+      max-width: 1000px;
+      margin: 3em auto;
+      flex-wrap: wrap;
+    }
+    
+    .staffMemberBox {
+      margin: 1em;
+      max-width: 280px;
+      width: 90%;
+      min-height: 3rem;
+      background-color: #cbc5c0;
+      color: rgb(255, 255, 255);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 4px 4px 8px rgba(255, 255, 255, 0.7);
+      border: none;
+      text-align: center;
+    }
+    
+    .boxBody {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: rgb(116, 152, 152);
+      min-height: 15rem;
+      
+    }
+    
+    /* The id, email, and/or office number, github username, or school output */
+    .listPersonItem {
+      color: #fffbf8;
+      text-decoration: none;
+      list-style-type: none;
+      text-align: justify;
+    }
+  
