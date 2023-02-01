@@ -16,6 +16,7 @@ to the team when I enter the team manager's name, id, email address, and office 
 intern choice
 - A HTML file is created when I exit the application after finishing building the team
 
-## Index.HTML file generated when application is used
+## Assets
+The following images demonstrate the index.html file generated once the application has ran
 ![screenshot](https://user-images.githubusercontent.com/115738225/216138058-02f5f1d9-2fa7-4801-a5fd-bf941a0b00cd.jpeg)
 ![screenshot2](https://user-images.githubusercontent.com/115738225/216138188-22567cb3-5b5f-4491-9d6c-a06cc6765c26.jpeg)
