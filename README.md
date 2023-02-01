@@ -17,4 +17,4 @@ intern choice
 - A HTML file is created when I exit the application after finishing building the team
 
 
-![screenshot](https://user-images.githubusercontent.com/115738225/216137563-118b0d4b-c93c-443d-aaa3-6b9ac60e668c.jpe![screenshot2](https://user-images.githubusercontent.com/115738225/216137632-aa4b0243-c208-45b2-8369-da82508e58b1.jpeg)
+![screenshot](https://user-images.githubusercontent.com/115738225/216138058-02f5f1d9-2fa7-4801-a5fd-bf941a0b00cd.jpeg)
