@@ -15,3 +15,6 @@ to the team when I enter the team manager's name, id, email address, and office 
 - I am prompted to enter the intern's name, employee id, email, and school when I select the
 intern choice
 - A HTML file is created when I exit the application after finishing building the team
+
+
+![screenshot](https://user-images.githubusercontent.com/115738225/216137563-118b0d4b-c93c-443d-aaa3-6b9ac60e668c.jpe![screenshot2](https://user-images.githubusercontent.com/115738225/216137632-aa4b0243-c208-45b2-8369-da82508e58b1.jpeg)
