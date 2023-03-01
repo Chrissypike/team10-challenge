@@ -1,16 +1,44 @@
+//dependencies
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateProfile = require('./src/html-Template');
 
- const Engineer = require('./lib/Engineer-class');
- const Intern = require('./lib/Intern-class');
- const Manager = require('./lib/Manager-class');
+//employee data
+const employeeData = [];
 
- const newStaffData = [];
+ //function for the opening inquiry for employees
+ function init() {
+    inquirer.prompt ({
+        name: "choice",
+        type: "list",
+        message: "Please enter your employee information",
+        choices: ["Enter your information if you are a Manager",
+                  "Enter your information if you are an Engineer",
+                  "Enter your information if you are an Intern"
+                 ]
+    })
+    .then(function(answer) {
+        switch(answer.choice) {
+            case "Enter your information if you are a Manager":
+            managerInfo();
+            break;
 
- // Questions function
- const Questions = async () => {
-    const Answers = await inquirer.prompt ([
+            case "Enter your information if you are an Engineer":
+            engineerInfo();
+            break;
+
+            case "Enter your information if you are an Intern":
+            internInfo();
+            break;
+        }
+    })
+ }
+
+ init ();
+
+ //function for the manager information
+ const managerInfo = async () => {
+    const managerQ =  await inquirer.prompt ([
         {
             type:"input",
             message: "Type your name",
@@ -27,92 +55,102 @@ const generateProfile = require('./src/html-Template');
             name: "email",
         },
         {
-            type:"list",
-            message: "Enter your role",
-            name: "role",
-            choices: ["Engineer", "Intern", "Manager"],
+            type:"input",
+            message: "What is your office number?",
+            name: "officeNumber",
         },
-    ])
-
-    // adding the office number sequence to the questions when manager is chosen
-    if (Answers.role === "Manager") {
-        const ManagerAnswers = await inquirer.prompt([
-            {
-                type:"input",
-                message: "Enter the number of your office",
-                name: "officeNumber",
-            },
-        ])
-        const newManager = new Manager (
-            Answers.name,
-            Answers.id,
-            Answers.email,
-            ManagerAnswers.officeNumber,
-        );
-        newStaffData.push(newManager);
-
-    // adding the github username sequence to the questions when engineer is chosen
-    } else if (Answers.role === "Engineer") {
-        const gitHubAnswers = await inquirer.prompt([
-            {
-                type:"input",
-                message: "Enter your GitHub username",
-                name: "username",
-            }
-        ])
-        const newEngineer = new Engineer(
-            Answers.name,
-            Answers.id,
-            Answers.email,
-            gitHubAnswers.username,
-        );
-        newStaffData.push(newEngineer);
-
-    // adding the school sequence to the questions when intern is chosen
-    } else if (Answers.role === "Intern") {
-        const internAnswers = await inquirer.prompt([
-            {
-                type:"input",
-                message: "Enter the university you attended",
-                name: "university",
-            }
-        ])
-        const newIntern = new Intern (
-            Answers.name,
-            Answers.id,
-            Answers.email,
-            internAnswers.university,
-        );
-        newStaffData.push(newIntern);
-    }
-
- };
-// end of the questions function
-
-//Questions in the terminal on whether or not to add more staff members or build the team structure
-async function promptQuestions () {
-    await Questions()
-
-    const addStaffAnswers = await inquirer.prompt([
         {
             type: "list",
-            message: "What would you like to do next?",
+            message: "What you like to add a new member or build the team?",
             name: "addStaff",
-            choices: ['Add a new staff member', 'Build team']
+            choices: ['Add a staff member', 'Build the team',]
         }
-    ])
-    if (addStaffAnswers.addStaff === 'Add a new staff member') {
-        return promptQuestions();
+    ])  
+    if (managerQ.addStaff === 'Add a staff member') {
+        return init();
     }
     return buildTeam();
+     
+};
+
+//function for the engineer information
+async function engineerInfo () {
+    const engineerQ =  await inquirer.prompt ([
+        {
+            type:"input",
+            message: "Type your name",
+            name: "name",
+        },
+        {
+            type:"input",
+            message: "Enter your ID number",
+            name: "id",
+        },
+        {
+            type:"input",
+            message: "Enter your email",
+            name: "email",
+        },
+        {
+            type:"input",
+            message: "What is your Github username",
+            name: "username",
+        },
+        {
+            type: "list",
+            message: "What you like to add a new member or build the team?",
+            name: "addStaff",
+            choices: ['Add a staff member', 'Build the team',]
+        }
+    ])  
+    if (engineerQ.addStaff === 'Add a staff member') {
+        return init();
+    }
+    return buildTeam();
+};
+
+//function for the intern information
+async function internInfo () {
+    const internQ =  await inquirer.prompt ([
+        {
+            type:"input",
+            message: "Type your name",
+            name: "name",
+        },
+        {
+            type:"input",
+            message: "Enter your ID number",
+            name: "id",
+        },
+        {
+            type:"input",
+            message: "Enter your email",
+            name: "email",
+        },
+        {
+            type:"input",
+            message: "Where did you attend school?",
+            name: "school",
+        },
+        {
+            type: "list",
+            message: "What you like to add a new member or build the team?",
+            name: "addStaff",
+            choices: ['Add a staff member', 'Build the team',]
+        }
+    ])  
+    if (internQ.addStaff === 'Add a staff member') {
+        return init();
+    }
+    return buildTeam();  
 }
 
-promptQuestions();
-
-//function to write the html file after choosing to build the team in the application
+//function to build the team
 function buildTeam () {
     fs.writeFileSync ("./dist/index.html",
-    generateProfile(newStaffData),
+    generateProfile(employeeData),
     "utf-8",
     );
 }
+    
+ 
