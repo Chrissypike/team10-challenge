@@ -18,3 +18,5 @@ intern choice
 
 ## Assets
 The following images demonstrate the index.html file generated once the application has ran:
+
+<img width="1314" alt="picture" src="https://user-images.githubusercontent.com/115738225/222980900-5e5f420f-e1f2-42df-95da-45629d967c1d.png">
