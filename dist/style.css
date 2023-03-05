@@ -3,7 +3,7 @@ body {
   }
   
   /* The navbar */
-    .container1 {
+    .navContainer {
       position: relative;
       margin: 0 auto 0;
       padding-top: 0px;
@@ -27,7 +27,7 @@ body {
       flex-wrap: wrap;
     }
     
-    .staffMemberBox {
+    .employeeBox {
       margin: 1em;
       max-width: 280px;
       width: 90%;
@@ -52,7 +52,7 @@ body {
     }
     
     /* The id, email, and/or office number, github username, or school output */
-    .listPersonItem {
+    .employeeItem {
       color: #fffbf8;
       text-decoration: none;
       list-style-type: none;
