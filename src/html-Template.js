@@ -16,24 +16,25 @@ module.exports = (profiles) => {
             <div class="textCenter">The Team</div>
         </div>
       </nav>
-      <section class="profileSpot">
-        ${createProfiles(profiles)}
+      <section class="developingProfiles">
+        ${developProfiles(profiles)}
       </section>
   </body>
   </html>
       `;
   };
 
-// create the team's profiles within the html element
-const createProfiles = (profiles) => {
-    // create the manager's html
-    const createManager = (manager) => {
+// develop the team's profiles within the html element
+function developProfiles(profiles) {
+    // develop the manager's html
+    function developManager (manager) {
       return `
       <section class="employeeBox">
-          <div class="boxHeader">
-              <h2 class="boxTitle">${manager.getName()}</h2>
-              <h3 class="boxTitle"></i>${manager.getRole()}</h3>
-          </div>
+          <div>
+            <ul>
+                <li class="boxTitle">${manager.getName()}</li>
+                <li class="boxTitle">${manager.getRole()}</li>
+            </ul>
           <div class="boxBody">
               <ul class="employeeList">
                   <li class="employeeItem">ID: ${manager.getId()}</li>
@@ -45,13 +46,15 @@ const createProfiles = (profiles) => {
           `;
     };
   
-    // create the engineer's html
-    const createEngineer = (engineer) => {
+    // develop the engineer's html
+    function developEngineer(engineer) {
       return `
           <section class="employeeBox">
-      <div class="boxHeader">
-          <h2 class="boxTitle">${engineer.getName()}</h2>
-          <h3 class="boxTitle"></i>${engineer.getRole()}</h3>
+      <div>
+        <ul>
+            <li class="boxTitle">${engineer.getName()}</li>
+            <li class="boxTitle">${engineer.getRole()}</li>
+        </ul>
       </div>
       <div class="boxBody">
           <ul class="employeeList">
@@ -64,13 +67,15 @@ const createProfiles = (profiles) => {
           `;
     };
   
-    // create intern's html
-    const createIntern = (intern) => {
+    // develop the intern's html
+    function developIntern(intern) {
       return `
           <section class="employeeBox">
-      <div class="boxHeader">
-          <h2 class="boxTitle">${intern.getName()}</h2>
-          <h3 class="boxTitle"></i>${intern.getRole()}</h3>
+      <div>
+        <ul>
+            <li class="boxTitle">${intern.getName()}</li>
+            <li class="boxTitle">${intern.getRole()}</li>
+        </ul>
       </div>
       <div class="boxBody">
           <ul class="employeeList">
@@ -88,18 +93,18 @@ const createProfiles = (profiles) => {
     html.push(
       profiles
         .filter((employee) => employee.getRole() === "Manager")
-        .map((manager) => createManager(manager))
+        .map((manager) => developManager(manager))
     );
     html.push(
       profiles
         .filter((employee) => employee.getRole() === "Engineer")
-        .map((engineer) => createEngineer(engineer))
+        .map((engineer) => developEngineer(engineer))
         .join("")
     );
     html.push(
       profiles
         .filter((employee) => employee.getRole() === "Intern")
-        .map((intern) => createIntern(intern))
+        .map((intern) => developIntern(intern))
         .join("")
     );
   
