@@ -3,6 +3,9 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const generateProfile = require('./src/html-Template');
 
+const Engineer = require('./lib/Engineer-class');
+const Intern = require('./lib/Intern-class');
+const Manager = require('./lib/Manager-class');
 //employee data
 const employeeData = [];
 
@@ -69,6 +72,13 @@ const employeeData = [];
     if (managerQ.addStaff === 'Add a staff member') {
         return init();
     }
+    const newManager = new Manager (
+        managerQ.name,
+        managerQ.id,
+        managerQ.email,
+        managerQ.officeNumber,
+    );
+    employeeData.push(newManager);
     return buildTeam();
      
 };
@@ -105,7 +115,14 @@ async function engineerInfo () {
     ])  
     if (engineerQ.addStaff === 'Add a staff member') {
         return init();
-    }
+    } 
+    const newEngineer = new Engineer(
+        engineerQ.name,
+        engineerQ.id,
+        engineerQ.email,
+        engineerQ.username,
+    );
+    employeeData.push(newEngineer);
     return buildTeam();
 };
 
@@ -142,6 +159,13 @@ async function internInfo () {
     if (internQ.addStaff === 'Add a staff member') {
         return init();
     }
+    const newIntern = new Intern (
+        internQ.name,
+        internQ.id,
+        internQ.email,
+        internQ.school,
+    )
+    employeeData.push(newIntern);
     return buildTeam();  
 }
 
