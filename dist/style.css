@@ -21,12 +21,19 @@ body {
       font-weight: bold;
     }
     
-    .profileSpot {
+    .developingProfiles {
       max-width: 1000px;
       margin: 3em auto;
       flex-wrap: wrap;
     }
     
+    .boxTitle {
+      color: #fffbf8;
+      text-decoration: none;
+      list-style-type: none;
+      text-align: justify;
+    }
+
     .employeeBox {
       margin: 1em;
       max-width: 280px;
