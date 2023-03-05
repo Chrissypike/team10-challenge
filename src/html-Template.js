@@ -88,25 +88,25 @@ function developProfiles(profiles) {
           `;
     };
   
-    const html = [];
+const indexHTML = [];
   
-    html.push(
-      profiles
-        .filter((employee) => employee.getRole() === "Manager")
-        .map((manager) => developManager(manager))
-    );
-    html.push(
-      profiles
-        .filter((employee) => employee.getRole() === "Engineer")
-        .map((engineer) => developEngineer(engineer))
-        .join("")
-    );
-    html.push(
-      profiles
-        .filter((employee) => employee.getRole() === "Intern")
-        .map((intern) => developIntern(intern))
-        .join("")
-    );
+indexHTML.push(
+    profiles
+    .filter((employee) => employee.getRole() === "Manager")
+    .map((manager) => developManager(manager))
+);
+indexHTML.push(
+    profiles
+    .filter((employee) => employee.getRole() === "Engineer")
+    .map((engineer) => developEngineer(engineer))
+    .join("")
+);
+indexHTML.push(
+    profiles
+    .filter((employee) => employee.getRole() === "Intern")
+    .map((intern) => developIntern(intern))
+    .join("")
+);
   
-    return html.join("");
-  };
+return indexHTML.join("");
+};
